@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">desafio_resources</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--declaracion de los strings en los layouts -->
+    <string name="btn_enviar">ENVIAR</string>
+    <string name="txt_encabezado">Nos encanta que quieras aplicar a nuestras becas, pero antes de todo necesitamos conocerte mas.</string>
+    <string name="txt_numero">Numero Telefonico:</string>
+    <string name="txt_nombre">Nombre Completo:</string>
+    <string name="txt_comoteenteraste">Como te enteraste?</string>
+    <string name="txt_correo">Correo Electronico:</string>
+
+</resources>
