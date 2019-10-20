@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="InpTheme" >
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">#F9F9F9</item>
+
+    </style>
+
 </resources>
