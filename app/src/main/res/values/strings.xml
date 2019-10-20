@@ -11,4 +11,11 @@
     <string name="txt_comoteenteraste">Como te enteraste?</string>
     <string name="txt_correo">Correo Electronico:</string>
 
+    <string-array name="array_conocer">
+        <item>Por redes sociales</item>
+        <item>un amigo me lo sugerio</item>
+        <item>Otro</item>
+    </string-array>
+
+
 </resources>
