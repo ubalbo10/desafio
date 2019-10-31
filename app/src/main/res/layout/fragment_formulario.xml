@@ -4,12 +4,13 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
                                                    android:background="#5B0DAF"
-             tools:context=".formularioFragment">
+             tools:context="sv.edu.desafio_resources.formularioFragment">
+
     <TextView
             android:text="@string/txt_nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView4"
+            android:id="@+id/textNombre"
             android:textColor="#F9F9F9"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/txt_principal" app:layout_constraintStart_toStartOf="parent"
@@ -21,13 +22,13 @@
               android:id="@+id/txt_principal"
 
               android:layout_marginTop="8dp"
-              app:layout_constraintTop_toBottomOf="@+id/imageView2" app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/imageBitlab" app:layout_constraintStart_toStartOf="parent"
               android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
               android:layout_marginEnd="8dp"/>
     <ImageView
             android:layout_width="180dp"
             android:layout_height="120dp" tools:src="@tools:sample/avatars[1]"
-            android:id="@+id/imageView2"
+            android:id="@+id/imageBitlab"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:srcCompat="@drawable/bitlab"/>
@@ -44,13 +45,13 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="40dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
             tools:ignore="MissingConstraints" android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"/>
+            app:layout_constraintTop_toBottomOf="@+id/textNombre"/>
     <TextView
             android:text="@string/txt_correo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#F9F9F9"
-            android:id="@+id/textView5"
+            android:id="@+id/textCorreoElectronico"
             app:layout_constraintTop_toBottomOf="@+id/editText_nombre" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="40dp"
             android:layout_marginTop="16dp"
@@ -69,7 +70,7 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/textCorreoElectronico" app:layout_constraintHorizontal_bias="0.0"
             android:autofillHints=""/>
     <EditText
             android:layout_width="wrap_content"
@@ -83,7 +84,7 @@
             android:id="@+id/editText_numero" android:layout_marginStart="40dp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textNumeroTel" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"/>
     <Spinner
             android:layout_width="200dp"
@@ -97,12 +98,12 @@
             android:id="@+id/spinner" android:layout_marginStart="40dp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"/>
+            app:layout_constraintTop_toBottomOf="@+id/textComoTeEnterastes"/>
     <TextView
             android:text="@string/txt_numero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView6"
+            android:id="@+id/textNumeroTel"
             android:textColor="#F9F9F9"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="40dp" android:layout_marginTop="8dp"
@@ -112,7 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#F9F9F9"
-            android:id="@+id/textView7" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/textComoTeEnterastes" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="40dp"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/editText_numero" app:layout_constraintEnd_toEndOf="parent"
@@ -120,10 +121,11 @@
     <Button
             android:text="@string/btn_enviar"
 
-            android:background="#F9F9F9"
+            android:background="@drawable/btn_riple"
             android:layout_width="250dp"
             android:layout_height="42dp"
             android:textColor="#5B0DAF"
+
             android:id="@+id/btn_enviar" android:layout_marginBottom="88dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"

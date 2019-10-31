@@ -3,7 +3,8 @@
              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".envioFragment">
+             tools:context="sv.edu.desafio_resources.CollectionViewFragment"
+        tools:ignore="MissingDefaultResource">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView

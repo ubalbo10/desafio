@@ -1,4 +1,4 @@
-package com.example.desafio_resources
+package sv.edu.desafio_resources
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4
