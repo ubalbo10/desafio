@@ -1,11 +1,16 @@
 package sv.edu.desafio_resources
 
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import sv.edu.bitlab.desafio.guillermo.Account
+import sv.edu.bitlab.desafio.guillermo.AdapterListDetalle
 import sv.edu.bitlab.desafio.guillermo.R
 
 
@@ -27,6 +32,14 @@ class CollectionViewFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var vista=inflater.inflate(R.layout.fragment_collection_view, container, false)
+        var recyclerView=vista.findViewById<RecyclerView>(R.id.recycler_account)
+        var Account=ArrayList<Account>()
+
+        var adaptador= AdapterListDetalle(Account!!)
+       recyclerView!!.adapter=adaptador
+        recyclerView!!.layoutManager = LinearLayoutManager(this.activity, LinearLayoutManager.VERTICAL, false)
+
+
 
         return vista
     }

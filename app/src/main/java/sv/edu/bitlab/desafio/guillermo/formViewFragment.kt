@@ -10,15 +10,21 @@ import android.view.ViewGroup
 import android.widget.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import sv.edu.bitlab.desafio.guillermo.R
+
 import androidx.annotation.NonNull
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.storage.UploadTask
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.storage.StorageReference
-import android.R
+
 import android.net.Uri
+import sv.edu.bitlab.desafio.guillermo.R
 import java.io.File
+import com.google.firebase.firestore.DocumentReference
+
+import android.util.Log
+import androidx.constraintlayout.widget.Constraints.TAG
+import sv.edu.bitlab.desafio.guillermo.Account
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -44,6 +50,7 @@ class formularioFragment : Fragment() {
         var btn_enviar=vista.findViewById<Button>(R.id.btn_enviar)
         var inp_nombre=vista.findViewById<EditText>(R.id.editText_nombre)
         var inp_correo=vista.findViewById<EditText>(R.id.editText_correo)
+        var inp_telefono=vista.findViewById<EditText>(R.id.editText_numero)
         var enlace=vista.findViewById<TextView>(R.id.enlace_coleccion)
         enlace.setOnClickListener{
             listener!!.envio()
@@ -65,19 +72,25 @@ class formularioFragment : Fragment() {
                 if(n!=1){
                     // Access a Cloud Firestore instance from your Activity
                     var db = FirebaseFirestore.getInstance()
-                    var mStorageRef = FirebaseStorage.getInstance().getReference();
-                    val file = Uri.fromFile(File("path/to/images/rivers.jpg"))
-                    val riversRef = mStorageRef.child("images/rivers.jpg")
+                    var mStorageRef = FirebaseStorage.
+                        getInstance().getReference()
+                    var objeto:Account?=null
+                    objeto!!.accountName=inp_nombre.toString()
+                    objeto!!.accountEmail=inp_correo.toString()
+                    objeto!!.accountPhone=inp_telefono.toString()
 
-                    riversRef.putFile(file)
-                        .addOnSuccessListener(OnSuccessListener<UploadTask.TaskSnapshot> { taskSnapshot ->
-                            // Get a URL to the uploaded content
-                            val downloadUrl = taskSnapshot.getDownloadUrl()
-                        })
-                        .addOnFailureListener(OnFailureListener {
-                            // Handle unsuccessful uploads
-                            // ...
-                        })
+
+
+                    db.collection("accounts")
+                        .add(objeto)
+                        .addOnSuccessListener { documentReference ->
+                            Log.d(
+                                TAG,
+                                "DocumentSnapshot added with ID: " + documentReference.id
+                            )
+                        }
+                        .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
+
                     listener!!.envio()
                 }
 

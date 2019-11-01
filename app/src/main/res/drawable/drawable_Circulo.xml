@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shape="oval"
+        tools:ignore="MissingDefaultResource"
+        >
+<corners android:bottomLeftRadius="100dp"
+        android:bottomRightRadius="100dp"
+        />
+    <solid   android:color="#F3E5F5"/>
+
+
+</shape>

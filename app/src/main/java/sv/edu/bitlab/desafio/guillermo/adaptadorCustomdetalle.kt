@@ -9,9 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class AdapterListDetalle(items:ArrayList<Pupusa>): RecyclerView.Adapter<AdapterListDetalle.ViewHolder>() {
+class AdapterListDetalle(items:ArrayList<Account>): RecyclerView.Adapter<AdapterListDetalle.ViewHolder>() {
 
-    var ListDatos=ArrayList<Pupusa>()
+    var ListDatos=ArrayList<Account>()
 
     init {
         this.ListDatos=items
@@ -32,17 +32,22 @@ class AdapterListDetalle(items:ArrayList<Pupusa>): RecyclerView.Adapter<AdapterL
     }
 
     class ViewHolder(itemView: View /**/) : RecyclerView.ViewHolder(itemView){
-
-        var relleno=itemView.findViewById<TextView>(R.id.txtrelleno)
-        var detalle=itemView.findViewById<TextView>(R.id.txtdetallerelleno)
-
-
-
+        var perfil=itemView.findViewById<TextView>(R.id.item_superior_perfil)
+        var correo=itemView.findViewById<TextView>(R.id.item_correo)
+        var numero=itemView.findViewById<TextView>(R.id.item_numero)
+        var comoTeEnteraste=itemView.findViewById<TextView>(R.id.item_comoteenteraste)
 
 
-        fun asignarDatos(datos: Pupusa) {
-            relleno.text="${datos.conArroz+datos.conMaiz}-${datos.relleno}"
-            detalle.text="${(datos.conArroz+datos.conMaiz)*0.5}"
+
+
+
+        fun asignarDatos(datos: Account) {
+//            relleno.text="${datos.conArroz+datos.conMaiz}-${datos.relleno}"
+//            detalle.text="${(datos.conArroz+datos.conMaiz)*0.5}"
+            perfil.text=datos.accountName
+            correo.text=datos.accountEmail
+            numero.text=datos.accountPhone
+            comoTeEnteraste.text=datos.accountFoundOutBy
 
         }
 
