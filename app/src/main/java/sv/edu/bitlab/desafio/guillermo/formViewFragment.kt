@@ -18,12 +18,15 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.storage.StorageReference
 
 import android.net.Uri
+import android.os.Handler
 import sv.edu.bitlab.desafio.guillermo.R
 import java.io.File
 import com.google.firebase.firestore.DocumentReference
 
 import android.util.Log
 import androidx.constraintlayout.widget.Constraints.TAG
+import androidx.core.view.isGone
+import kotlinx.android.synthetic.main.fragment_formulario.*
 import sv.edu.bitlab.desafio.guillermo.Account
 
 
@@ -77,22 +80,34 @@ class formularioFragment : Fragment() {
                     objeto!!.accountName=inp_nombre.toString()
                     objeto!!.accountEmail=inp_correo.toString()
                     objeto!!.accountPhone=inp_telefono.toString()
-
-
-
-                    db.collection("accounts").add(objeto)
-                        .addOnSuccessListener { documentReference ->
+                    Toast.makeText(activity,"me estoy ejecutando",Toast.LENGTH_LONG).show()
+//
+//                    db.collection("cities").document("LA")
+//                        .set(city)
+//                        .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
+//                        .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+                    db.collection("accounts").document("nuevo").set(objeto)
+                        .addOnSuccessListener { //documentReference ->
                             Log.d(
                                 TAG,
-                                "DocumentSnapshot added with ID: " + documentReference.id
+                                "DocumentSnapshot added with ID: " //+ documentReference.id
                             )
                             Toast.makeText(activity,"En evento de guardar",Toast.LENGTH_LONG).show()
+                            listener!!.envio()
                         }
                         .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e)
-                            Toast.makeText(activity,"En evento de guardar",Toast.LENGTH_LONG).show()
+                            Toast.makeText(activity,"Fallo guardar",Toast.LENGTH_LONG).show()
                         }
 
-                    listener!!.envio()
+                    var contenedor_form=vista.findViewById<View>(R.id.contenedor_form)
+                    var contenedor_espera=vista.findViewById<View>(R.id.contenedor_espera)
+                    contenedor_form.visibility=View.GONE
+                    contenedor_espera.visibility=View.VISIBLE
+
+                    Handler().postDelayed({
+                        listener!!.envio()
+                    }, 3000)
+
                 }
 
 
