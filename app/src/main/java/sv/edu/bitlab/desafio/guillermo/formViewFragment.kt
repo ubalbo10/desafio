@@ -77,9 +77,9 @@ class formularioFragment : Fragment() {
                     var db = FirebaseFirestore.getInstance()
                     var mStorageRef = FirebaseStorage.getInstance().getReference()
                     var objeto=Account("","","","","")
-                    objeto!!.accountName=inp_nombre.toString()
-                    objeto!!.accountEmail=inp_correo.toString()
-                    objeto!!.accountPhone=inp_telefono.toString()
+                    objeto!!.accountName=inp_nombre.text.toString()
+                    objeto!!.accountEmail=inp_correo.text.toString()
+                    objeto!!.accountPhone=inp_telefono.text.toString()
                     Toast.makeText(activity,"me estoy ejecutando",Toast.LENGTH_LONG).show()
 //
 //                    db.collection("cities").document("LA")
@@ -93,20 +93,22 @@ class formularioFragment : Fragment() {
                                 "DocumentSnapshot added with ID: " //+ documentReference.id
                             )
                             Toast.makeText(activity,"En evento de guardar",Toast.LENGTH_LONG).show()
-                            listener!!.envio()
+                            var contenedor_form=vista.findViewById<View>(R.id.contenedor_form)
+                            var contenedor_espera=vista.findViewById<View>(R.id.contenedor_espera)
+                            var mhandler=Handler()!!
+                            contenedor_form.visibility=View.GONE
+                            contenedor_espera.visibility=View.VISIBLE
+
+                            mhandler!!.postDelayed({
+                                listener!!.envio()
+                            }, 5000)
+
+
                         }
                         .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e)
                             Toast.makeText(activity,"Fallo guardar",Toast.LENGTH_LONG).show()
                         }
 
-                    var contenedor_form=vista.findViewById<View>(R.id.contenedor_form)
-                    var contenedor_espera=vista.findViewById<View>(R.id.contenedor_espera)
-                    contenedor_form.visibility=View.GONE
-                    contenedor_espera.visibility=View.VISIBLE
-
-                    Handler().postDelayed({
-                        listener!!.envio()
-                    }, 3000)
 
                 }
 
