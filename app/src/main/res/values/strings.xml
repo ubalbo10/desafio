@@ -11,7 +11,7 @@
     <string name="txt_comoteenteraste">Como te enteraste?</string>
     <string name="txt_correo">Correo Electronico:</string>
 
-    <string name="coleccion">ver Coleccion <u>underline</u>.</string>
+    <string name="coleccion"> <u>ver Coleccion</u>.</string>
     <string name="nuevo_registro">anadir nuevo registro <u>underline</u>.</string>
 
     <string-array name="array_conocer">

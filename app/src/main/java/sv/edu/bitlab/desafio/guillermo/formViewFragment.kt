@@ -72,24 +72,25 @@ class formularioFragment : Fragment() {
                 if(n!=1){
                     // Access a Cloud Firestore instance from your Activity
                     var db = FirebaseFirestore.getInstance()
-                    var mStorageRef = FirebaseStorage.
-                        getInstance().getReference()
-                    var objeto:Account?=null
+                    var mStorageRef = FirebaseStorage.getInstance().getReference()
+                    var objeto=Account("","","","","")
                     objeto!!.accountName=inp_nombre.toString()
                     objeto!!.accountEmail=inp_correo.toString()
                     objeto!!.accountPhone=inp_telefono.toString()
 
 
 
-                    db.collection("accounts")
-                        .add(objeto)
+                    db.collection("accounts").add(objeto)
                         .addOnSuccessListener { documentReference ->
                             Log.d(
                                 TAG,
                                 "DocumentSnapshot added with ID: " + documentReference.id
                             )
+                            Toast.makeText(activity,"En evento de guardar",Toast.LENGTH_LONG).show()
                         }
-                        .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
+                        .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e)
+                            Toast.makeText(activity,"En evento de guardar",Toast.LENGTH_LONG).show()
+                        }
 
                     listener!!.envio()
                 }
