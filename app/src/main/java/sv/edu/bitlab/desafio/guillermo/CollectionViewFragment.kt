@@ -37,16 +37,18 @@ class CollectionViewFragment : Fragment() {
         // Inflate the layout for this fragment
         var vista=inflater.inflate(R.layout.fragment_collection_view, container, false)
         var recyclerView=vista.findViewById<RecyclerView>(R.id.recycler_account)
-        var list_documentos= mutableListOf<Account>()
+        var list_documentos= ArrayList<Account>()
         var db = FirebaseFirestore.getInstance()
         db.collection("accounts")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     Log.d(TAG, "${document.id} => ${document.data}")
-                    var documentos = document!!.toObject(Account::class.java)
 
-                    list_documentos!!.add(documentos)
+                    var documentos = document.toObject(Account::class.java)
+
+                    list_documentos!!.add(documentos!!)
+
                 }
 
                 Toast.makeText(activity,"${list_documentos.size}",Toast.LENGTH_LONG).show()
@@ -56,11 +58,11 @@ class CollectionViewFragment : Fragment() {
             }
 
 
-        var Account=ArrayList<Account>()
+//        var Account=ArrayList<Account>()
 
-        var adaptador= AdapterListDetalle(Account!!)
+        var adaptador= AdapterListDetalle(list_documentos!!)
        recyclerView!!.adapter=adaptador
-        recyclerView!!.layoutManager = LinearLayoutManager(this.activity, LinearLayoutManager.VERTICAL, false)
+        recyclerView!!.layoutManager = LinearLayoutManager(activity!!.applicationContext, LinearLayoutManager.VERTICAL, false)
 
 
 
