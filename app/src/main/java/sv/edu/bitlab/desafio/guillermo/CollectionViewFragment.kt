@@ -30,6 +30,8 @@ private const val ARG_PARAM2 = "param2"
 
 class CollectionViewFragment : Fragment() {
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,6 +53,13 @@ class CollectionViewFragment : Fragment() {
 
                 }
 
+
+
+                    var adaptador = AdapterListDetalle(list_documentos!!)
+                    recyclerView!!.adapter = adaptador
+                    recyclerView!!.layoutManager =LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+                    Toast.makeText(activity,"me ejecute",Toast.LENGTH_LONG).show()
+
                 Toast.makeText(activity,"${list_documentos.size}",Toast.LENGTH_LONG).show()
             }
             .addOnFailureListener { exception ->
@@ -60,9 +69,6 @@ class CollectionViewFragment : Fragment() {
 
 //        var Account=ArrayList<Account>()
 
-        var adaptador= AdapterListDetalle(list_documentos!!)
-       recyclerView!!.adapter=adaptador
-        recyclerView!!.layoutManager = LinearLayoutManager(activity!!.applicationContext, LinearLayoutManager.VERTICAL, false)
 
 
 
@@ -70,4 +76,6 @@ class CollectionViewFragment : Fragment() {
     }
 
 
+
 }
+
